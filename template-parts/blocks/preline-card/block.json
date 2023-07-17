@@ -1,0 +1,58 @@
+{
+    "$schema": "https://app.blockstudio.dev/schema",
+    "apiVersion": 2,
+    "name": "client-name-replace/card",
+    "title": "Card",
+    "category": "client-name-replace",
+    "icon": "marker",
+    "description": "A basic card containing an image, title, description, and link.",
+    "keywords": [
+        "client-name-replace",
+        "block",
+        "card"
+    ],
+    "version": "1.0.0",
+    "textdomain": "blockstudio",
+    "supports": {
+        "align": true
+    },
+    "blockstudio": {
+        "attributes": [
+            {
+                "id": "image",
+                "type": "files",
+                "label": "Image",
+                "max": 1,
+                "returnFormat": "object"
+            },
+            {
+                "id": "title",
+                "type": "text",
+                "label": "Title"
+            },
+            {
+                "id": "desc",
+                "type": "textarea",
+                "label": "Description"
+            },
+            {
+                "id": "link",
+                "type": "group",
+                "label": "Link",
+                "title": "Link",
+                "attributes": [
+                    {
+                        "id": "url",
+                        "type": "link",
+                        "label": "URL"
+                    },
+                    {
+                        "id": "text",
+                        "type": "text",
+                        "label": "Text"
+                    }
+                ]
+            }
+        ]
+    }
+}
