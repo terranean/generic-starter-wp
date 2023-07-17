@@ -15,14 +15,14 @@ register_nav_menus( array( 'main-menu' => esc_html__( 'Main Menu', 'generic' ) )
 }
 add_action( 'wp_enqueue_scripts', 'generic_enqueue' );
 function generic_enqueue() {
-wp_enqueue_style( 'generic-style', get_stylesheet_uri() );
-wp_enqueue_style( 'generic-icons', get_template_directory_uri() . '/icons/icons.css' );
+// wp_enqueue_style( 'generic-style', get_stylesheet_uri() );
+// wp_enqueue_style( 'generic-icons', get_template_directory_uri() . '/icons/icons.css' );
 wp_enqueue_script( 'jquery' );
-wp_register_script( 'generic-videos', get_template_directory_uri() . '/js/videos.js' );
-wp_enqueue_script( 'generic-videos' );
-wp_add_inline_script( 'generic-videos', 'jQuery(document).ready(function($){$("#wrapper").vids();});' );
+// wp_register_script( 'generic-videos', get_template_directory_uri() . '/js/videos.js' );
+// wp_enqueue_script( 'generic-videos' );
+// wp_add_inline_script( 'generic-videos', 'jQuery(document).ready(function($){$("#wrapper").vids();});' );
 }
-add_action( 'wp_footer', 'generic_footer' );
+// add_action( 'wp_footer', 'generic_footer' );
 function generic_footer() {
 ?>
 <script>
@@ -155,12 +155,28 @@ return count( $comments_by_type['comment'] );
 return $count;
 }
 }
+?>
+
+<!-- 
+----------------------------------------------------
+added by jh:
+-->
+
+<?php
+
+// scripts and styles
+function terranean_styles_scripts_setup() {
+    wp_enqueue_style( 'styles', get_template_directory_uri() . '/styles.css' );
+    wp_enqueue_script( 'scripts', get_template_directory_uri() . '/scripts.js', array(), '1.0.0', true  );
+}
+add_action( 'wp_enqueue_scripts', 'terranean_styles_scripts_setup' );
+
 
 // Blockstudio editor
 add_filter('blockstudio/editor/users', function () {
     return [1];
-  });
-  
+});
+
 // Register Block Category (stolen from Blockstudio plugin's blockstudio.php)
 if (version_compare(get_bloginfo('version'), '5.8.0', '>=')) {
 add_filter(
@@ -196,3 +212,4 @@ add_filter(
 add_filter('blockstudio/path', function () {
     return get_template_directory() . '/template-parts/blocks';
 });
+?>
