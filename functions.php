@@ -212,4 +212,15 @@ add_filter(
 add_filter('blockstudio/path', function () {
     return get_template_directory() . '/template-parts/blocks';
 });
+
+// TODO: figure this out...
+// custom menu classes (https://developer.wordpress.org/reference/hooks/nav_menu_submenu_css_class/)
+function wpdocs_custom_dropdown_class( $classes ) {
+	$classes[] = 'xxxxxxxxx';
+
+	return $classes;
+    var_dump($classes);
+}
+
+add_filter( 'nav_menu_submenu_css_class', 'wpdocs_custom_dropdown_class' );
 ?>
